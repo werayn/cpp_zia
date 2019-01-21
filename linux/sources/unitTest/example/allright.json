@@ -1,0 +1,21 @@
+{
+  "server_name" : "Zia",
+  "server_version" : "1.0",
+  "max_uri_size" : 1000,
+  "modules_path" : [
+    "./sources/modules"
+  ],
+  "roots" : {
+    "localhost" : "/home/maxoulak/work/B5/C++/cpp_zia"
+  },
+  "SSL" : {
+    "cert" : "linux/sources/unitTest/example/cert.pem",
+    "key" : "linux/sources/unitTest/example/key.pem"
+  },
+  "Log" : {
+    "path" : "logFile"
+  },
+  "PHP" : {
+    "version" : "1.0"
+  }
+}

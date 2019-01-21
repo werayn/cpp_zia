@@ -1,0 +1,28 @@
+{
+    "server_name" : "Zia",
+    "server_version" : "1.0",
+    "port" : 8080,
+    "port_ssl" : 443,
+    "max_uri_size" : 1000,
+    "modules_path" : [
+	"./sources/modules"
+    ],
+    "modules" : [
+	"php_module",
+	"ssl_module"
+    ],
+    "roots" : {
+	"localhost" : ".",
+	"127.0.0.1" : "."
+    },
+  "SSL" : {
+      "cert" : "ressources/cert.pem",
+      "key" : "ressources/key.pem"
+  },
+    "Log" : {
+	"path" : "logFile"
+    },
+    "PHP" : {
+	"version" : "1.0"
+    }
+}

@@ -1,0 +1,31 @@
+# Maintainer/Originator: zia
+pkgname=zia
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="Zia web server"
+arch=(any)
+license=('GPL')
+depends=()
+optdepends=()
+backup=()
+source=('zia' 'liblog_module.so' 'libphp_module.so' 'libssl_module.so' 'zia.service' 'zia.8.gz' 'zia.json')
+sha256sums=(
+	SKIP
+	SKIP
+	SKIP
+	SKIP
+	'736925b39f5854a27fcd526d4103aeedd6a3b2ffd3adfd4b5d8ad6052ce6dfd6'
+	'653033f0bdc5199367900ef7074765d53280b0e928ba5e1a4bbb963978c0ac83'
+	'1b5b519473ef1b08860a3f95186498324e0d13d8e19af0f3f78fe415f1b85b61')
+
+package() {
+  install -Dm644 "$srcdir"/zia.service "$pkgdir"/usr/lib/systemd/system/zia.service
+  install -Dm755 "$srcdir"/zia "$pkgdir"/usr/bin/zia
+  install -Dm644 "$srcdir"/zia.8.gz "$pkgdir"/usr/share/man/man8/zia.8.gz
+  install -Dm644 "$srcdir"/zia.json "$pkgdir"/etc/zia/zia.json
+  install -Dm755 "$srcdir"/liblog_module.so "$pkgdir"/usr/lib/zia/liblog_module.so
+  install -Dm755 "$srcdir"/liblog_module.so "$pkgdir"/usr/lib/zia/libphp_module.so
+  install -Dm755 "$srcdir"/liblog_module.so "$pkgdir"/usr/lib/zia/libssl_module.so
+  mkdir -p -m 755 "$pkgdir"/var/log/zia
+  mkdir -p -m 755 "$pkgdir"/var/www
+}

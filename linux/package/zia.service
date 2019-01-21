@@ -1,0 +1,12 @@
+[Unit]
+Description=Zia Web Server
+
+[Service]
+Type=forking
+PIDFile=/run/zia.pid
+
+ExecStart=/usr/bin/zia
+ExecStop=/usr/bin/zia -s stop
+
+[Install]
+WantedBy=multi-user.target

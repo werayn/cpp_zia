@@ -1,0 +1,63 @@
+.\" Manpage for zia
+.\"
+
+.TH ZIA 8 "February 2018" "ZIA" "ZIA System Manager's Manual"
+.SH NAME
+zia \- HTTP server
+.SH SYNOPSIS
+.B zia
+[\fI\,OPTION\/\fR]
+.SH DESCRIPTION
+.B zia
+is an HTTP server. It is known for its performance, stability, simple
+configuration, and low resource consumption.
+.SH OPTIONS
+.TP
+.B \-c, \-\-config\fR=\fI\,file\/\fR
+Use an alternative configuration
+.I file
+instead of
+.IR /etc/zia/zia.json .
+.TP
+.B \-r, \-\-reload
+Tell master process to reload its configuration file
+.TP
+.B \-s, \-\-signal\fR=\fI\,sig\/\fR
+send signal
+.I sig
+to the master process. The argument
+.I sig
+can be one of:
+.B stop, quit, reload
+.TP
+.B \-h, \-\-help
+display help and exit
+.SH FILES
+.I /etc/zia/zia.json
+.RS
+The default configuration file.
+.SH EXIT STATUS
+.TP
+0
+if OK
+.TP
+1
+on failure
+.TP
+2
+if permission denied
+.SH EXAMPLES
+.PP
+Run zia with custom configuration file:
+.in +8n
+zia -c ~/zia.json
+.PP
+Reload master process configuration file:
+.in +8n
+zia -r
+.PP
+Shutdown master process:
+.in +8n
+zia -s stop
+.SH AUTHORS
+Maxime Maisonnas, Virgile Junique, Rodolphe Chazal, Loris Sanchez, Quentin Albertone and Jérémy Koehler
